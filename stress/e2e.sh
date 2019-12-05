@@ -8,9 +8,5 @@ sleep 5
 kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic Transaction_Event
 kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic Transaction_Result_Maria
 kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic Transaction_Result_Redis
-./create-account.sh
-./top-up.sh
-./p2p.sh
-./back-up.sh
-./p2p.sh
+
 

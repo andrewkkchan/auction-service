@@ -43,7 +43,7 @@ public class TransactionControllerTest {
     public void testQueueTransaction() throws IOException {
         RequestEnvelop requestEnvelop = new RequestEnvelop();
         requestEnvelop.setId("1234");
-        requestEnvelop.setType(Type.P2P.toString());
+        requestEnvelop.setType(Type.OFFER.toString());
         requestEnvelop.setRequest(null);
         Mockito.when(objectMapper.writeValueAsString(nullable(Object.class))).thenReturn("{}");
         TransactionEvent transactionEvent = transactionController.queueTransaction(requestEnvelop);
@@ -69,7 +69,7 @@ public class TransactionControllerTest {
         thrown.expectMessage(LedgerServiceErrorMessage.REQUEST_UNREADABLE.getMessageKey());
         RequestEnvelop requestEnvelop = new RequestEnvelop();
         requestEnvelop.setId("1234");
-        requestEnvelop.setType(Type.P2P.toString());
+        requestEnvelop.setType(Type.OFFER.toString());
         requestEnvelop.setRequest(null);
         Mockito.when(objectMapper.writeValueAsString(nullable(Object.class))).thenThrow(new JsonEOFException(null, null, null));
         TransactionEvent transactionEvent = transactionController.queueTransaction(requestEnvelop);
@@ -80,7 +80,7 @@ public class TransactionControllerTest {
     public void testQueueTransaction_idempotency() throws IOException {
         RequestEnvelop requestEnvelop = new RequestEnvelop();
         requestEnvelop.setId("1234");
-        requestEnvelop.setType(Type.P2P.toString());
+        requestEnvelop.setType(Type.OFFER.toString());
         requestEnvelop.setRequest(null);
         Mockito.when(objectMapper.writeValueAsString(nullable(Object.class))).thenReturn("{}");
         TransactionEvent transactionEvent = transactionController.queueTransaction(requestEnvelop);
