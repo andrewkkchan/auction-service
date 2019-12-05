@@ -20,10 +20,43 @@ sudo ./kafka.sh
 
 ### Step 2
 
-Run the End to End Stress Test, which send 1,000 p2p transactions into the http endpoint.
+Run the End to End set up script for Kafka topics.
 ```
 ./e2e.sh
 ```
+
+### Step 3 
+Make some offers:
+```
+curl -X POST \
+  http://localhost:3003/transaction/event/ \
+  -H 'Content-Type: application/json' \
+  -d '{
+	"type" : "offer",
+    "request" : {
+        "itemKey" : "glass999",
+        "offeror" :"andrew"
+    }
+}'
+```
+
+### Step 4
+Make some bids:
+```
+curl -X POST \
+  http://localhost:3003/transaction/event/ \
+  -H 'Content-Type: application/json' \
+  -d '{
+	"type" : "bid",
+    "request" : {
+        "itemKey" : "vase123",
+        "bidder" :"tom",
+        "bid": 1000
+    }
+}'
+```
+
+
 
 ## Abstract
 
