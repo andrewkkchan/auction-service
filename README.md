@@ -56,6 +56,19 @@ curl -X POST \
 }'
 ```
 
+### Step 5
+Accept the highest bid up to now for an item
+```
+curl -X POST \
+  http://localhost:3003/transaction/event/ \
+  -H 'Content-Type: application/json' \
+  -d '{
+	"type" : "acceptance",
+    "request" : {
+        "itemKey" : "vase123"
+    }
+}'
+```
 
 
 ## Abstract
