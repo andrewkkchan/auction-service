@@ -34,7 +34,7 @@ curl -X POST \
   -d '{
 	"type" : "offer",
     "request" : {
-        "itemKey" : "glass999",
+        "itemKey" : "vase123",
         "offeror" :"andrew"
     }
 }'
